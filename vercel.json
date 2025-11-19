@@ -4,12 +4,16 @@
     {
       "src": "main.py",
       "use": "@vercel/python"
+    },
+    {
+      "src": "api/webhook.py",
+      "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/api/webhook",
-      "dest": "main.py",
+      "dest": "api/webhook.py",
       "methods": ["POST"]
     },
     {
@@ -19,5 +23,7 @@
   ],
   "env": {
     "PYTHONPATH": "@"
-  }
+  },
+  "buildCommand": "pip install -r requirements.txt",
+  "outputDirectory": "."
 }
